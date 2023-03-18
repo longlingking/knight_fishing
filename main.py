@@ -22,11 +22,15 @@ def get_fish():
     global flag
     image_get_fish = Image.open("D:\Py_Program\knight\photos\\finish_get_fish.png")
     image_get_trash = Image.open("D:\Py_Program\knight\photos\\finish_get_trash.png")
+    image_get_submit = Image.open("D:\Py_Program\knight\photos\\finish_get_submit.png")
     if pyautogui.locateOnScreen(image_get_fish):
         flag = 1
         return 1
     elif pyautogui.locateOnScreen(image_get_trash):
         flag = 2
+        return 1
+    elif pyautogui.locateOnScreen(image_get_submit):
+        flag = 3
         return 1
     else:
         return 0
@@ -52,6 +56,9 @@ if __name__ == '__main__':
                 elif flag == 2:
                     pos_trash = pyautogui.center(pyautogui.locateOnScreen("D:\Py_Program\knight\photos\\finish_get_trash.png"))
                     pyautogui.click(pos_trash)
+                elif flag == 3:
+                    pos_submmit = pyautogui.center(pyautogui.locateOnScreen("D:\Py_Program\knight\photos\\finish_get_submit.png"))
+                    pyautogui.click(pos_submmit)
                 time.sleep(0.5)
                 if pyautogui.locateOnScreen("D:\Py_Program\knight\photos\\true.png"):
                     click_true()
